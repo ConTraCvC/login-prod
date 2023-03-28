@@ -1,0 +1,164 @@
+.gpt3_whatgpt3 {
+    display: flex;
+    flex-direction: column;
+
+    padding: 2rem;
+    background: var(--color-footer);
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* ff 3.6+ */
+    background:-moz-radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 85%, rgba(27, 120, 222, 1) 100%);
+
+    /* safari 5.1+,chrome 10+ */
+    background:-webkit-radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 85%, rgba(27, 120, 222, 1) 100%);
+
+    /* opera 11.10+ */
+    background:-o-radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 85%, rgba(27, 120, 222, 1) 100%);
+
+    /* ie 10+ */
+    background:-ms-radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 85%, rgba(27, 120, 222, 1) 100%);
+
+    /* global 92%+ browsers support */
+    background:radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 85%, rgba(27, 120, 222, 1) 100%);
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.gpt3_whatgpt3-feature {
+    display: flex;
+    color: #fff;
+}
+.gpt3_whatgpt3-feature .gpt3_features-container_feature {
+    margin: 0;
+}
+
+.gpt3_whatgpt3-feature .gpt3_features-container_feature-text {
+    max-width: 700px;
+}
+
+.gpt3_whatgpt3-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    margin: 4rem 0 2rem;
+}
+
+.gpt3_whatgpt3-heading h1 {
+    font-size: 34px;
+    line-height: 45px;
+    font-weight: 800;
+    font-family: var(--font-family);
+    max-width: 510px;
+}
+
+.gpt3_whatgpt3-heading p {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    color: var(--color-subtext);
+    cursor: pointer;
+}
+
+.gpt3_whatgpt3-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    color: #fff;
+
+    margin-top: 2rem;
+}
+
+.gpt3_whatgpt3-container .gpt3_features-container_feature {
+    flex: 1;
+    margin: 1rem;
+    min-width: 210px;
+    display: unset;
+    flex-direction: column;
+}
+
+.gpt3_whatgpt3-container .gpt3_features-container_feature-text {
+    margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 850px) {
+    .gpt3_whatgpt3-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 0rem;
+    }
+    .gpt3_whatgpt3-heading p {
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .gpt3_whatgpt3-feature .gpt3_features-container_feature {
+        flex-direction: column;
+    }
+    .gpt3_whatgpt3-feature .gpt3_features-container_feature-text {
+        margin-top: 0.5rem;
+    }
+    .gpt3_whatgpt3-heading h1 {
+        font-size: 28px;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .gpt3_whatgpt3-container .gpt3_features-container__feature {
+        margin: 1rem 0;
+        min-width: 100%;
+    }
+}
+
+.rectangle {
+    width: 60%;
+    height: 10rem;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(210,21,220,1) 39%, rgba(255,106,0,1) 100%);
+    /* top: %; */
+    border-radius: 10px;
+    border-style: solid;
+    border-color: orangered;
+    align-self: center;
+    position: relative;
+}
+
+.radiant {
+    width: 90px;
+    height: 70px;
+      /* ff 3.6+ */
+      background:-moz-radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 85%, rgba(27, 120, 222, 1) 100%);
+
+      /* safari 5.1+,chrome 10+ */
+      background:-webkit-radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 85%, rgba(27, 120, 222, 1) 100%);
+  
+      /* opera 11.10+ */
+      background:-o-radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 85%, rgba(27, 120, 222, 1) 100%);
+  
+      /* ie 10+ */
+      background:-ms-radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 85%, rgba(27, 120, 222, 1) 100%);
+  
+      /* global 92%+ browsers support */
+      background:radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 85%, rgba(27, 120, 222, 1) 100%);
+    border-bottom-left-radius: 50px ;
+    border-bottom-right-radius: 50px ;
+    margin: 0 auto;
+    position: relative;
+}
+
+.circle-button {
+    width: 60px;
+    height: 60px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(32,29,32,1) 39%, rgba(65,55,48,1) 100%);
+    border-radius: 70%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
