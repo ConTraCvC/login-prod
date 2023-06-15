@@ -108,15 +108,15 @@ const Navbar = () => {
       setLoading(false);
     }, 1000);
     if (effectRan.current===true){
-    if(cookies.alreadyClose){
-      setIsOpen(true)
-    }
-    if(cookies.newPassword){
-      setIsOpen3(true)
-    }
-    if(cookies.enterNewPs){
-      setIsOpen2(true)
-    }
+      if(cookies.alreadyClose){
+        setIsOpen(true)
+      }
+      if(cookies.newPassword){
+        setIsOpen3(true)
+      }
+      if(cookies.enterNewPs){
+        setIsOpen2(true)
+      }
     window.addEventListener("loading", () => {setLoading, setIsOpen, setIsOpen2, setIsOpen3});}
     return () => {
       window.removeEventListener("loading", () => {setLoading, setIsOpen, setIsOpen2, setIsOpen3})
