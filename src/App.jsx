@@ -25,8 +25,8 @@ const App = () => {
       <div className='gradient_bg'>
         <Routes>
           <Route index element={<Navbar/> }/>
-          <Route exact path="auth/savePassword" />
-          <Route exact path="/userDetails" />
+          <Route exact path="auth/savePassword" element={<EnterNewPassword/>}/>
+          <Route exact path="/userDetails" element={<UserPage/>}/>
         </Routes>
         <Header/>
         <Brand />
