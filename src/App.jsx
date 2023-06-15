@@ -17,16 +17,16 @@ const Protected = ({ isLoggedIn, children }) => {
 
 const App = () => {
 
-  const rsToken = useSelector(selectResetPSToken);
-  const refreshToken = useSelector(state => state.user.refreshToken);
+  // const rsToken = useSelector(selectResetPSToken);
+  // const refreshToken = useSelector(state => state.user.refreshToken);
 
   return (
     <div className='App'>
       <div className='gradient_bg'>
         <Routes>
           <Route index element={<Navbar/> }/>
-          <Route exact path="auth/savePassword" element={<Protected isLoggedIn={rsToken && Object.values(rsToken).length!==0}><EnterNewPassword/> </Protected>}/>
-          <Route exact path="/userDetails" element={<Protected isLoggedIn={refreshToken}><UserPage/> </Protected>}/>
+          <Route exact path="auth/savePassword" />
+          <Route exact path="/userDetails" />
         </Routes>
         <Header/>
         <Brand />
