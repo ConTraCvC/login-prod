@@ -77,7 +77,8 @@ const Navbar = () => {
   function onIdle() {
     refreshToken ? setCookie('alreadyClose', 'alreadyClose', {
       maxAge: 5,
-      path:"/"
+      path:"/",
+      sameSite: 'strict'
     }) : null
     dispatch(logOut(user));
     window.location.reload(false);
@@ -86,7 +87,8 @@ const Navbar = () => {
   function resetPassword() {
     setCookie('resetPassword', 'resetPassword', {
       maxAge: 5,
-      path:"/"
+      path:"/",
+      sameSite: 'strict'
     });
   }
 
@@ -218,13 +220,15 @@ const Navbar = () => {
         dispatch(updateResetPSToken(response.data.body))
         setCookie('newPassword', 'newPassword', {
           maxAge: 5,
-          path:"/"
+          path:"/",
+          sameSite: 'strict'
         });
         setCookie('rsToken', response.data.body, {
           maxAge: 600,
-          path:"/"
+          path:"/",
+          sameSite: 'strict'
         })
-        removeCookie("resetPassword")
+        removeCookie('resetPassword')
       } else {
         toast("Invalid email, try again !" , {
           autoClose: 4000,

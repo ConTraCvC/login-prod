@@ -58,7 +58,8 @@ const UserPage = () => {
     dispatch(logOut(timeout));
     setCookie('alreadyClose', 'alreadyClose', {
       maxAge: 5,
-      path:"/"
+      path:"/",
+      sameSite: 'strict'
     });
     navigate("/");
     window.location.reload(false);

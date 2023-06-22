@@ -14,7 +14,7 @@ import { exit, selectResetPSToken } from '../../redux/resetPSToken';
 
 const EnterNewPassword = () => {
 
-  const [cookies, setCookie] = useCookies();
+  const [cookies, setCookie, removeCookie] = useCookies();
   const dispatch = useDispatch();
   const rsToken = useSelector(selectResetPSToken);
   const [loading, setLoading] = useState(false);
@@ -74,8 +74,10 @@ const EnterNewPassword = () => {
         dispatch(exit(rsToken))
         setCookie('enterNewPs', 'enterNewPs', {
           maxAge: 5,
-          path:"/"
+          path:"/",
+          sameSite: 'strict'
         });
+        removeCookie('rsToken')
       }
     } catch (err) {
       setTimeout(() => {

@@ -6,4 +6,4 @@ export {default as Navbar} from './navbar/Navbar';
 export {default as UserPage} from './UserPage';
 
 // BASE_API
-export const AUTH_URL = 'http://localhost:8081/auth';
+export const AUTH_URL = 'http://localhost:8082/auth';
