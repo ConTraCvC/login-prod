@@ -40,6 +40,7 @@ const EnterNewPassword = () => {
 
   function close() {
     dispatch(exit(rsToken))
+    removeCookie('rsToken')
     navigate('/')
   }
 
