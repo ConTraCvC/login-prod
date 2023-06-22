@@ -216,7 +216,7 @@ const Navbar = () => {
           setLoading(false);
         }, 1000);
       }
-      if (response.data.body){
+      if (response.data.body && response.data.body!=='Wrong email address !'){
         dispatch(updateResetPSToken(response.data.body))
         setCookie('newPassword', 'newPassword', {
           maxAge: 5,
