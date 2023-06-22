@@ -85,8 +85,8 @@ const UserPage = () => {
       setTimeout(() => {
         setLoading(false);
       }, 1000);
-      err.code.match("ERR_NETWORK") ? 
-        toast.isActive("Something went wrong, try again later !", {
+      err.response.status===0 ? 
+        toast("Something went wrong, try again later !", {
           autoClose: 4000,
           theme: "dark",
           type:'error'
@@ -94,6 +94,11 @@ const UserPage = () => {
         autoClose: 4000,
         theme: "dark"
       })
+      err.response.status===403 ? 
+      toast("Access denied !", {
+        autoClose: 4000,
+        theme: "dark"
+      }) : null
     }
   }
 
