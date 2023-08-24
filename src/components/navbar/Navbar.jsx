@@ -19,6 +19,7 @@ import { useCookies } from 'react-cookie';
 import ReactModal from 'react-modal';
 import { exit, selectResetPSToken, updateResetPSToken } from '../../redux/resetPSToken';
 import { updateRole, updateUser, updateEmail, updateRefreshToken, updateJwtToken, logOut, selectUser } from '../../redux/userSlice';
+import { useQuery } from 'react-query';
 
 const Menu = () => (
   <>
@@ -44,9 +45,10 @@ ReactModal.setAppElement('#root');
 const Navbar = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
   const [ toggleMenu, setToggleMenu ] = useState();
-  const [confirmPassword, setConfirmPassword] = useState('');
+
   const dispatch = useDispatch();
   const [cookies, setCookie, removeCookie] = useCookies();
   const [loading, setLoading] = useState(false);
@@ -81,7 +83,7 @@ const Navbar = () => {
       sameSite: 'strict'
     }) : null
     dispatch(logOut(user));
-    window.location.reload(false);
+    if(cookies.alreadyClose) document.location.reload(false);
   }
 
   function resetPassword() {
@@ -94,7 +96,7 @@ const Navbar = () => {
 
   function logoutUser() {
     dispatch(logOut(user));
-    window.location.reload(false);
+    document.location.reload(false);
   }
 
   function close() {
@@ -119,9 +121,9 @@ const Navbar = () => {
       if(cookies.enterNewPs){
         setIsOpen2(true)
       }
-    window.addEventListener("loading", () => {setLoading, setIsOpen, setIsOpen2, setIsOpen3});}
+    document.addEventListener("loading", () => {setLoading, setIsOpen, setIsOpen2, setIsOpen3});}
     return () => {
-      window.removeEventListener("loading", () => {setLoading, setIsOpen, setIsOpen2, setIsOpen3})
+      document.removeEventListener("loading", () => {setLoading, setIsOpen, setIsOpen2, setIsOpen3})
       clearTimeout(timeOut)
       return effectRan.current=true
     }
@@ -131,8 +133,8 @@ const Navbar = () => {
   const handleSubmit = async(event, user={username, password}) => {
     event.preventDefault();
     setLoading(true)
-    try{
     const response = await axios.post(`${AUTH_URL}/sign-in`, user)
+    try{
     // //
       if(response.data.body.token) {
         dispatch(updateUser(response.data?.body?.username))
@@ -141,6 +143,7 @@ const Navbar = () => {
         dispatch(updateRefreshToken(response.data?.body?.refreshToken))
         dispatch(updateJwtToken(response.data?.body?.token))
       }
+
       toast(response.data.body, {
         autoClose: 4000,
           theme:'dark'

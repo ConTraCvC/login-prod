@@ -46,9 +46,9 @@ const UserPage = () => {
           console.log(err)
         }
       }, 1000*60*10);}
-    window.addEventListener("loading", () => {setLoading});}
+    document.addEventListener("loading", () => {setLoading});}
     return () => {
-      window.removeEventListener("loading", () => {setLoading})
+      document.removeEventListener("loading", () => {setLoading})
       clearTimeout(timeOut)
       effectRan.current=true
     }
@@ -155,8 +155,9 @@ const UserPage = () => {
     <div className='user-details'>
       {loading ? <BarWave width="70px" height="25px"/> : <h2>User Detail</h2>}
       <div>
-      {role.toString()==="ROLE_ADMIN" ? <Button size='lg' onClick={AdminView}>Control Users</Button> : null}
-      <Button size="lg" color='warning' onClick={returnUserPage}>Return</Button></div>
+        {role.toString()==="ROLE_ADMIN" ? <Button size='lg' onClick={AdminView}>Control Users</Button> : null}
+        <Button size="lg" color='warning' onClick={returnUserPage}>Return</Button>
+      </div>
     </div>
       <IdleTimerProvider
           timeout={1000*60*10}
