@@ -29,7 +29,7 @@ const Menu = () => (
   <p><a href='#features'>CaseStudies</a></p>
   <p><a href='#blog'>Library</a></p>
   </>
-)
+);
 
 const customStyles = {
   content: {
@@ -73,7 +73,7 @@ const Navbar = () => {
     setIsOpen3(false)
   }
 
-  const regex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&_+=()-])(?=\S+$).{8,30}$/
+  const regex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&_+=()-])(?=\S+$).{8,30}$/;
 
   // Idle timeout
   function onIdle() {
@@ -100,8 +100,8 @@ const Navbar = () => {
   }
 
   function close() {
-    removeCookie("resetPassword")
-    dispatch(exit(rsToken))
+    removeCookie("resetPassword");
+    dispatch(exit(rsToken));
   }
 
   // // Avoid double sql query effect.
@@ -123,25 +123,25 @@ const Navbar = () => {
       }
     document.addEventListener("loading", () => {setLoading, setIsOpen, setIsOpen2, setIsOpen3});}
     return () => {
-      document.removeEventListener("loading", () => {setLoading, setIsOpen, setIsOpen2, setIsOpen3})
-      clearTimeout(timeOut)
-      return effectRan.current=true
+      document.removeEventListener("loading", () => {setLoading, setIsOpen, setIsOpen2, setIsOpen3});
+      clearTimeout(timeOut);
+      return effectRan.current=true;
     }
-  }, [cookies.alreadyClose, cookies.newPassword, cookies.enterNewPs])
+  }, [cookies.alreadyClose, cookies.newPassword, cookies.enterNewPs]);
 
   // Login User
   const handleSubmit = async(event, user={username, password}) => {
     event.preventDefault();
     setLoading(true)
-    const response = await axios.post(`${AUTH_URL}/sign-in`, user)
+    const response = await axios.post(`${AUTH_URL}/sign-in`, user);
     try{
     // //
       if(response.data.body.token) {
-        dispatch(updateUser(response.data?.body?.username))
-        dispatch(updateEmail(response.data?.body?.email))
-        dispatch(updateRole(response.data?.body?.roles))
-        dispatch(updateRefreshToken(response.data?.body?.refreshToken))
-        dispatch(updateJwtToken(response.data?.body?.token))
+        dispatch(updateUser(response.data?.body?.username));
+        dispatch(updateEmail(response.data?.body?.email));
+        dispatch(updateRole(response.data?.body?.roles));
+        dispatch(updateRefreshToken(response.data?.body?.refreshToken));
+        dispatch(updateJwtToken(response.data?.body?.token));
       }
 
       toast(response.data.body, {
@@ -167,29 +167,29 @@ const Navbar = () => {
         autoClose: 4000,
         theme: "dark",
         type:'error'
-      })
-      console.log(err)
+      });
+      console.log(err);
     }
   }
 
   const handleSignUp = async(event, user={email, username, password}) => {
     event.preventDefault();
-    setLoading(true)
+    setLoading(true);
+    const response = await axios.post(`${AUTH_URL}/sign-up`, user);
     try {
-    const response = await axios.post(`${AUTH_URL}/sign-up`, user)
-    if(response.data){
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    }
-    toast(response.data.body.message, {
-      autoClose: 4000,
-        theme:'dark'
-    })
-    toast(response.data.body, {
-      autoClose: 4000,
-        theme:'dark'
-    })
+      if(response.data){
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+      }
+      toast(response.data.body.message, {
+        autoClose: 4000,
+          theme:'dark'
+      });
+      toast(response.data.body, {
+        autoClose: 4000,
+          theme:'dark'
+      });
     } catch (err) {
       if(err) {
         setTimeout(() => {
@@ -205,22 +205,22 @@ const Navbar = () => {
           autoClose: 4000,
           theme: "dark",
           type:'error'
-      })
+      });
     }
   }
 
   const handleForgotPassword = async(event, userEmail={email}) => {
-    setLoading(true)
+    setLoading(true);
     event.preventDefault();
     try {
-      const response = await axios.post(`${AUTH_URL}/resetPassword`, userEmail)
+      const response = await axios.post(`${AUTH_URL}/resetPassword`, userEmail);
       if (response.data){
         setTimeout(() => {
           setLoading(false);
         }, 1000);
       }
       if (response.data.body && response.data.body!=='Wrong email address !'){
-        dispatch(updateResetPSToken(response.data.body))
+        dispatch(updateResetPSToken(response.data.body));
         setCookie('newPassword', 'newPassword', {
           maxAge: 5,
           path:"/",
@@ -230,13 +230,13 @@ const Navbar = () => {
           maxAge: 600,
           path:"/",
           sameSite: 'strict'
-        })
+        });
         removeCookie('resetPassword')
       } else {
         toast("Invalid email, try again !" , {
           autoClose: 4000,
           theme: "dark"
-        })
+        });
       }
     } catch (err) {
       setTimeout(() => {
@@ -250,7 +250,7 @@ const Navbar = () => {
       })) : ( toast(err, {
         autoClose: 4000,
         theme: "dark"
-      }))
+      }));
     }
   }
   
@@ -471,4 +471,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;
