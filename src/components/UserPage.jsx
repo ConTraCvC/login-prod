@@ -45,7 +45,8 @@ const UserPage = () => {
         } catch(err) {
           console.log(err);
         }
-      }, 1000*60*10);}
+      }, 1000*60*10);
+    }
     document.addEventListener("loading", () => {setLoading});}
     return () => {
       document.removeEventListener("loading", () => {setLoading});
