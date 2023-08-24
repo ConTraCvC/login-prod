@@ -133,9 +133,9 @@ const Navbar = () => {
   const handleSubmit = async(event, user={username, password}) => {
     event.preventDefault();
     setLoading(true)
-    const response = await axios.post(`${AUTH_URL}/sign-in`, user);
-    try{
     // //
+    try{
+      const response = await axios.post(`${AUTH_URL}/sign-in`, user);
       if(response.data.body.token) {
         dispatch(updateUser(response.data?.body?.username));
         dispatch(updateEmail(response.data?.body?.email));
@@ -175,8 +175,8 @@ const Navbar = () => {
   const handleSignUp = async(event, user={email, username, password}) => {
     event.preventDefault();
     setLoading(true);
-    const response = await axios.post(`${AUTH_URL}/sign-up`, user);
     try {
+      const response = await axios.post(`${AUTH_URL}/sign-up`, user);
       if(response.data){
         setTimeout(() => {
           setLoading(false);

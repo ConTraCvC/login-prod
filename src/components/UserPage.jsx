@@ -73,7 +73,7 @@ const UserPage = () => {
   const AdminView = async() => {
     setLoading(true);
     try {
-      const res = await axios.get(`${AUTH_URL}/mod`, {
+        const res = await axios.get(`${AUTH_URL}/mod`, {
         headers: {Authorization: `Bearer ${jwtToken}`}
       })
       setUsers(res.data);
