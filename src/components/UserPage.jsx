@@ -40,19 +40,19 @@ const UserPage = () => {
         try {
           const res = await axios.post(`${AUTH_URL}/refreshToken`, {
             token: refreshToken
-          })
+          });
           dispatch(updateJwtToken(res.data.body.token))
         } catch(err) {
-          console.log(err)
+          console.log(err);
         }
       }, 1000*60*10);}
     document.addEventListener("loading", () => {setLoading});}
     return () => {
-      document.removeEventListener("loading", () => {setLoading})
-      clearTimeout(timeOut)
-      effectRan.current=true
+      document.removeEventListener("loading", () => {setLoading});
+      clearTimeout(timeOut);
+      effectRan.current=true;
     }
-  }, [])
+  }, []);
 
   function onIdle() {
     dispatch(logOut(timeout));
@@ -70,12 +70,12 @@ const UserPage = () => {
   }
 
   const AdminView = async() => {
-    setLoading(true)
+    setLoading(true);
     try {
       const res = await axios.get(`${AUTH_URL}/mod`, {
         headers: {Authorization: `Bearer ${jwtToken}`}
       })
-      setUsers(res.data)
+      setUsers(res.data);
       if(res.data){
         setTimeout(() => {
           setLoading(false);
@@ -114,7 +114,7 @@ const UserPage = () => {
         }, 1000);
       }
       let updateUsers = [...users].filter(i => i.id !== id)
-      setUsers(updateUsers)
+      setUsers(updateUsers);
     } catch(err) {
       setTimeout(() => {
         setLoading(false);
@@ -127,7 +127,7 @@ const UserPage = () => {
         autoClose: 4000,
         theme: "dark",
         type:'error'
-      })
+      });
     }
   }
 
