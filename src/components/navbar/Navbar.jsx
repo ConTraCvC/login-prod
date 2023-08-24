@@ -184,11 +184,11 @@ const Navbar = () => {
       }
       toast(response.data.body.message, {
         autoClose: 4000,
-          theme:'dark'
+        theme:'dark'
       });
       toast(response.data.body, {
         autoClose: 4000,
-          theme:'dark'
+        theme:'dark'
       });
     } catch (err) {
       if(err) {
