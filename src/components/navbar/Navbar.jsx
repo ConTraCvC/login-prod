@@ -147,7 +147,7 @@ const Navbar = () => {
       toast(response.data.body, {
         autoClose: 4000,
           theme:'dark'
-      })
+      });
       if(response.data){
         setTimeout(() => {
           setLoading(false);
